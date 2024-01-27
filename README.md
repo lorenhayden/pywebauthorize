@@ -7,22 +7,28 @@ web based authorization
 pip install pywebauthorize
 ```
 
-## Module Hierarchy
+## PyWebAuthorize Hierarchy
 - **basicauth**
   - **encode**
     - **parameters**
       - **user** *(str)* The username of the user
       - **password** *(str)* The password of the user
       - **use_hashed_password** *(bool)* Flag to indicate password is hashed using SHA3-512 algorithm
-    - **return** (str) Basic Authorization string ```Basic <Base64 encoded string>```
+    - **return** *(str)* Basic Authorization string ```Basic <Base64 encoded string>```
     - **raises** *(BasicAuthError)* Raises exception with reason
-  - decode
-    - parameters
+  - **decode**
+    - **parameters**
       - **authorization** *(str)* The basic authorization string ```Basic <Base64 encoded string>```
-    - return (dict) Returns the user and password in a key value pair dictionary
-    - raises (BasicAuthError) Raises exception with reason
-  - verify
+    - **return** *(dict)* Returns the user and password in a key value pair dictionary
+    - **raises** *(BasicAuthError)* Raises exception with reason
+  - **verify**
     - parameters
+      - **authorization** *(str)* The basic authorization string
+      - **use_hashed_password** *(bool)* Flag to indicate password is hashed using SHA3-512 algorithm
+    - **return** *(bool)* True = Authorized, False = Not Authorized
+    - **raises** *(BasicAuthError)* Raises exception with reason
+
+## Documentation
 
 ### basicauth.encode
 Encodes a username and password into a valid Basic Authorization string
