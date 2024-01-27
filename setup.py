@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='pywebauthorize',
-    version='0.0.1',
+    name='pywebauthorization',
+    version='0.0.2',
     packages=find_packages(),
     install_requires=[
         # List your dependencies here

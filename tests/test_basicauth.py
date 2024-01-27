@@ -1,10 +1,10 @@
 import pytest
 import base64
 from hashlib import sha3_512
-from pywebauthorize.basicauth import encode, decode, verify, BasicAuthError
+from pywebauthorization.basicauth import encode, decode, verify, BasicAuthError
 
 
-@pytest.mark.describe("Test the pywebauthorize.encode")
+@pytest.mark.describe("Test the pywebauthorization.encode")
 def test_basic_auth_encode_good_user_password():
     # Test 1 - basicauth.encode with good user/password
     username = 'test'
@@ -15,7 +15,7 @@ def test_basic_auth_encode_good_user_password():
     assert actual == expected
 
 
-@pytest.mark.describe("Test the pywebauthorize.encode using use_hashed_password=True")
+@pytest.mark.describe("Test the pywebauthorization.encode using use_hashed_password=True")
 def test_basic_auth_encode_good_user_password_with_use_hashed_password():
     # Test 1 - basicauth.encode with good user/password
     username = 'test'
@@ -28,7 +28,7 @@ def test_basic_auth_encode_good_user_password_with_use_hashed_password():
     assert actual == expected
 
 
-@pytest.mark.describe("Test the pywebauthorize with bad username")
+@pytest.mark.describe("Test the pywebauthorization with bad username")
 def test_basicauth_encode_bad_username():
     # Test 2 - basicauth.encode with bad user
     username = ''
@@ -40,7 +40,7 @@ def test_basicauth_encode_bad_username():
         assert 1 == 1
 
 
-@pytest.mark.describe("Test the pywebauthorize with bad password")
+@pytest.mark.describe("Test the pywebauthorization with bad password")
 def test_basicauth_encode_bad_password():
     # Test 2 - basicauth.encode with bad user
     username = 'test'
@@ -52,7 +52,7 @@ def test_basicauth_encode_bad_password():
         assert 1 == 1
 
 
-@pytest.mark.describe("Test the pywebauthorize.decode good authorization string")
+@pytest.mark.describe("Test the pywebauthorization.decode good authorization string")
 def test_basic_auth_decode_good_auth_string():
     expected = {'user': 'test', 'password': 'password'}
     # Build the authorization string
@@ -67,7 +67,7 @@ def test_basic_auth_decode_good_auth_string():
         assert actual[k] == expected[k]
 
 
-@pytest.mark.describe("Test the pywebauthorize.decode bad authorization string")
+@pytest.mark.describe("Test the pywebauthorization.decode bad authorization string")
 def test_basic_auth_decode_bad_auth_string():
     expected = {'user': 'test', 'password': 'password'}
     authorization = encode(expected.get('user'), expected.get('password'))
@@ -83,7 +83,7 @@ def test_basic_auth_decode_bad_auth_string():
         assert 1 == 1
 
 
-@pytest.mark.description("Test the pywebauthorize.verify with good authorization string")
+@pytest.mark.description("Test the pywebauthorization.verify with good authorization string")
 def test_basic_auth_verify_good_authorization_string():
     expected = True
     authorization = 'Basic dGVzdDpwYXNzd29yZA=='
